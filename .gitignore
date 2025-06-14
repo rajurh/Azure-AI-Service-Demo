@@ -1,0 +1,153 @@
+# Azure AI Demos - Git Ignore File
+
+# Environment variables (contains sensitive credentials)
+.env
+.env.local
+.env.*.local
+
+# Virtual environments
+azure_ai_env/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Data files (may contain sensitive information)
+data/private/
+data/confidential/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Output directories with generated content
+temp/
+tmp/
+
+# Azure specific
+.azure/
+*.publish
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-workspace
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Linux
+*~
+
+# Logs
+*.log
+logs/
+
+# Test files
+test_setup.py
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Audio/video files (can be large)
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.mov
+
+# Image files (can be large)
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.svg
+
+# Document files with sensitive content
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+
+# Cache directories
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Keep sample data directory structure but ignore contents
+data/**
+!data/.gitkeep
+!data/README.md
+
