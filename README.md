@@ -16,7 +16,7 @@ This guide will help you set up the Python environment and Azure resources neede
 #### Windows (PowerShell/Command Prompt)
 ```powershell
 # Navigate to your project directory
-cd "C:\Raju\Training\AOAI\AzureAIDemos"
+cd "C:\AzureAIDemos"
 
 # Create virtual environment
 python -m venv azure_ai_env
