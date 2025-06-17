@@ -1,0 +1,75 @@
+{
+  "name": "Azure AI Services - Codespaces Optimized",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true,
+      "username": "codespace",
+      "userUid": "automatic",
+      "userGid": "automatic"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "jupyter.notebookFileRoot": "${containerWorkspaceFolder}",
+        "files.associations": {
+          "*.ipynb": "jupyter-notebook"
+        },
+        "python.analysis.typeCheckingMode": "basic",
+        "python.terminal.activateEnvironment": true
+      },
+
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "ms-vscode.azure-account",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-vscode.azurecli",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-vscode.vscode-json",
+        "redhat.vscode-yaml",
+        "ms-vscode.powershell"
+      ]
+    }
+  },
+
+  "forwardPorts": [8888, 8080, 5000, 3000],
+
+  "postCreateCommand": "bash .devcontainer/setup-codespaces.sh",
+
+  "containerEnv": {
+    "PYTHONPATH": "${containerWorkspaceFolder}",
+    "JUPYTER_ENABLE_LAB": "yes",
+    "AZURE_AI_WORKSPACE": "${containerWorkspaceFolder}",
+    "GITHUB_CODESPACES": "true"
+  },
+
+  "remoteUser": "codespace",
+  
+  "shutdownAction": "stopContainer"
+}

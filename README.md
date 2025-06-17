@@ -2,6 +2,44 @@
 
 This guide will help you set up the Python environment and Azure resources needed to run the Azure AI demonstration notebooks.
 
+## 🚀 Quick Start with DevContainer (Recommended)
+
+The easiest way to get started is using the provided DevContainer configuration, which includes all prerequisites and dependencies pre-configured.
+
+### Prerequisites for DevContainer
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for VS Code
+
+### Setup Steps
+1. **Clone this repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd AzureAIDemos
+   ```
+
+2. **Open in VS Code**:
+   ```bash
+   code .
+   ```
+
+3. **Reopen in DevContainer**:
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+   - Type "Dev Containers: Reopen in Container"
+   - Select the command and wait for the container to build
+
+4. **Set up Azure credentials** (see [Azure Resources Setup](#azure-resources-setup) section below)
+
+5. **Start working**: Open any `.ipynb` file and start exploring Azure AI services!
+
+For detailed DevContainer information, see [`.devcontainer/README.md`](.devcontainer/README.md).
+
+---
+
+## 🛠 Manual Setup (Alternative)
+
+If you prefer to set up the environment manually or can't use DevContainers:
+
 ## Prerequisites
 
 - Python 3.8 or higher

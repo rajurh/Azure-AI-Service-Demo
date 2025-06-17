@@ -1,0 +1,56 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance", 
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-python.flake8",
+        "ms-python.black-formatter",
+        "ms-vscode.azure-account",
+        "ms-azuretools.vscode-azureresourcegroups",
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-vscode.azurecli",
+        "github.copilot",
+        "github.copilot-chat"
+      ],
+      
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "jupyter.notebookFileRoot": "${containerWorkspaceFolder}",
+        "files.associations": {
+          "*.ipynb": "jupyter-notebook"
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [8888, 8080, 5000, 3000],
+  "portsAttributes": {
+    "8888": {
+      "label": "Jupyter Lab",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup-codespaces.sh",
+
+  "remoteUser": "codespace"
+}
