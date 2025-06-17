@@ -3,10 +3,8 @@
   "dockerFile": "Dockerfile",
   "context": "..",
   
-  // Configure tool-specific properties
   "customizations": {
     "vscode": {
-      // Set *default* container specific settings.json values on container create
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "python.linting.enabled": true,
@@ -26,7 +24,7 @@
         }
       },
       
-      // Add the IDs of extensions you want installed when the container is created      "extensions": [
+      "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-toolsai.jupyter",
@@ -47,7 +45,6 @@
     }
   },
 
-  // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.11",
@@ -58,7 +55,8 @@
     },
     "ghcr.io/devcontainers/features/git:1": {
       "version": "latest"
-    },    "ghcr.io/devcontainers/features/common-utils:2": {
+    },
+    "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
       "configureZshAsDefaultShell": true,
       "installOhMyZsh": true,
@@ -72,25 +70,19 @@
     }
   },
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally
   "forwardPorts": [8888, 8080, 5000, 3000],
-  // Use 'postCreateCommand' to run commands after the container is created
   "postCreateCommand": "bash .devcontainer/setup.sh && pip install -r requirements.txt",
-  // Configure container environment variables
   "containerEnv": {
     "PYTHONPATH": "${containerWorkspaceFolder}",
     "JUPYTER_ENABLE_LAB": "yes",
     "AZURE_AI_WORKSPACE": "${containerWorkspaceFolder}"
   },
 
-  // Set environment variables for the container
   "remoteEnv": {
     "PATH": "${containerEnv:PATH}:/usr/local/py-utils/bin"
   },
 
-  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root
   "remoteUser": "vscode",
-  // Configure mounts for better performance and persistence
   "mounts": [
     "source=${localWorkspaceFolder}/.vscode,target=${containerWorkspaceFolder}/.vscode,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/data,target=${containerWorkspaceFolder}/data,type=bind,consistency=cached",
@@ -98,7 +90,6 @@
     "source=${localWorkspaceFolder}/sample_images,target=${containerWorkspaceFolder}/sample_images,type=bind,consistency=cached",
     "source=${localWorkspaceFolder}/sample_documents,target=${containerWorkspaceFolder}/sample_documents,type=bind,consistency=cached"
   ],
-  // Configure container lifecycle scripts
   "initializeCommand": "echo 'Initializing Azure AI Services development environment...'",
   "onCreateCommand": [
     "sudo apt-get update",
@@ -107,6 +98,5 @@
     "sudo apt-get install -y ffmpeg"
   ],
   
-  // Configure shutdown behavior
   "shutdownAction": "stopContainer"
 }

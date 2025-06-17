@@ -269,6 +269,21 @@ python -c "import soundfile; print('Audio processing ready!')"
 - Verify audio file formats are supported
 - Test with provided sample audio files first
 
+# 🛠️ Troubleshooting
+
+## Recent Fixes Applied
+
+### JSON Syntax Error (June 2025)
+**Issue:** "Invalid character after parsing property name. Expected ':' but got: ,. Path 'customizations.vscode.settings'"
+
+**Solution:** Fixed JSON syntax errors in devcontainer configuration files:
+- Removed invalid JSON comments (`//`) from `.devcontainer/devcontainer.json`
+- Fixed missing comma after git feature configuration
+- Fixed malformed extensions array declaration
+- Validated all JSON files for proper syntax
+
+**Status:** ✅ **RESOLVED** - All devcontainer JSON files now have valid syntax
+
 ## 📚 Additional Resources
 
 - [VS Code DevContainer Documentation](https://code.visualstudio.com/docs/remote/containers)

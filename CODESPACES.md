@@ -155,6 +155,35 @@ pip install -r requirements.txt
 sudo apt-get update && sudo apt-get upgrade
 ```
 
+## 🛠️ Troubleshooting
+
+### JSON Syntax Errors (June 2025)
+**Issue:** If you see "Invalid character after parsing property name" error during Codespace creation:
+
+```
+Invalid character after parsing property name. Expected ':' but got: ,. 
+Path 'customizations.vscode.settings', line 30, position 26.
+```
+
+**Solution:** This issue has been **RESOLVED** ✅. The devcontainer JSON files have been fixed to remove:
+- Invalid JSON comments (`//`)
+- Missing commas in object definitions
+- Malformed array declarations
+
+**Current Status:** All JSON files are now valid and Codespaces should launch successfully.
+
+### Container Creation Issues
+If the container fails to build:
+1. Wait for the recovery container to start
+2. Check the creation logs in the Terminal
+3. Try rebuilding the container: Command Palette → "Codespaces: Rebuild Container"
+
+### Environment Variables Not Set
+If Azure services return authentication errors:
+1. Ensure all required environment variables are set (see Quick Start section)
+2. Variables are session-specific - set them each time you start a new Codespace
+3. Consider using Codespaces Secrets for persistent storage of API keys
+
 ## 📖 Additional Resources
 
 - [GitHub Codespaces Documentation](https://docs.github.com/en/codespaces)
