@@ -177,6 +177,25 @@ navigator is now a global in nodejs
 - Added extension update prevention settings
 - Created minimal configuration option (`devcontainer-minimal.json`)
 
+### Docker Build Errors (June 2025)
+**Error Messages:**
+```
+ERROR: failed to solve: process "/bin/sh -c groupadd --gid $USER_GID $USERNAME" 
+did not complete successfully: exit code: 9
+```
+
+**Root Cause:** Custom Dockerfile with user creation conflicts in Codespaces environment.
+
+**Solution Applied:** ✅ **RESOLVED**
+- Switched from custom Dockerfile to pre-built image (`mcr.microsoft.com/devcontainers/python:3.11-bullseye`)
+- Removed user creation conflicts by using devcontainer features instead
+- Moved problematic Dockerfile to `.devcontainer/Dockerfile.backup`
+- Established clear configuration hierarchy
+
+**Current Setup:**
+- GitHub Codespaces uses: `.github/codespaces/devcontainer.json` (image-based, no custom Dockerfile)
+- Local development option: `.devcontainer/devcontainer-local.json` (rename to use locally)
+
 ## 🛠️ Troubleshooting
 
 ### JSON Syntax Errors (June 2025)
