@@ -1,4 +1,5 @@
 {
+  "name": "Azure AI Services - Minimal Codespaces",
   "image": "mcr.microsoft.com/devcontainers/python:3.11-bullseye",
   
   "features": {
@@ -8,11 +9,9 @@
       "installZsh": true,
       "configureZshAsDefaultShell": true,
       "upgradePackages": true
-    },
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "18"
     }
   },
+
   "customizations": {
     "vscode": {
       "extensions": [
@@ -21,13 +20,11 @@
         "ms-toolsai.jupyter",
         "ms-toolsai.jupyter-keymap",
         "ms-toolsai.jupyter-renderers",
-        "ms-python.flake8",
-        "ms-python.black-formatter",
         "ms-vscode.azure-account",
-        "ms-azuretools.vscode-azureresourcegroups",
         "ms-vscode.azurecli"
       ],
-        "settings": {
+      
+      "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
         "jupyter.notebookFileRoot": "${containerWorkspaceFolder}",
         "files.associations": {
@@ -35,12 +32,13 @@
         },
         "python.analysis.typeCheckingMode": "basic",
         "extensions.autoUpdate": false,
-        "extensions.autoCheckUpdates": false
+        "extensions.autoCheckUpdates": false,
+        "workbench.startupEditor": "none"
       }
     }
   },
 
-  "forwardPorts": [8888, 8080, 5000, 3000],
+  "forwardPorts": [8888],
   "portsAttributes": {
     "8888": {
       "label": "Jupyter Lab",
@@ -49,6 +47,11 @@
   },
 
   "postCreateCommand": "bash .devcontainer/setup-codespaces.sh",
+
+  "containerEnv": {
+    "PYTHONPATH": "${containerWorkspaceFolder}",
+    "JUPYTER_ENABLE_LAB": "yes"
+  },
 
   "remoteUser": "codespace"
 }

@@ -155,6 +155,28 @@ pip install -r requirements.txt
 sudo apt-get update && sudo apt-get upgrade
 ```
 
+### Extension Compatibility Warnings (June 2025)
+**Common Messages You Might See:**
+
+```
+extension 'ms-vsliveshare.vsliveshare' wants API proposal 'notebookCellExecutionState' but that proposal DOES NOT EXIST
+extension 'ms-python.vscode-pylance' wants API proposal 'mcpConfigurationProvider' but that proposal DOES NOT EXIST
+navigator is now a global in nodejs
+```
+
+**Status:** ✅ **SAFE TO IGNORE** - These are informational warnings only.
+
+**Explanation:**
+- VS Code extensions trying to use newer APIs that don't exist in Codespaces environment
+- Extensions automatically fall back to supported functionality
+- No impact on Azure AI demo functionality
+- Normal behavior in GitHub Codespaces
+
+**Solution Applied:**
+- Removed problematic extensions (`ms-vsliveshare`, `github.copilot`) from default install
+- Added extension update prevention settings
+- Created minimal configuration option (`devcontainer-minimal.json`)
+
 ## 🛠️ Troubleshooting
 
 ### JSON Syntax Errors (June 2025)
